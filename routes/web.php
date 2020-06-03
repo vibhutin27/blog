@@ -21,3 +21,6 @@ Auth::routes();
 
 Route::post('/excelUpload','HomeController@excelUpload')->name('excelUpload');
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('/excelUpload','LiefeController@excelUpload')->name('excelUpload');
+Route::get('/liefe', 'LiefeController@showForm')->name('liefe');

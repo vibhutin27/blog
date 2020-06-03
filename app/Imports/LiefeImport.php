@@ -11,16 +11,20 @@ use Maatwebsite\Excel\Concerns\WithMappedCells;
 use Maatwebsite\Excel\Concerns\WithCalculatedFormulas;
 use Maatwebsite\Excel\Concerns\WithMultipleSheets;
 
-class UsersImport implements WithMultipleSheets, WithCalculatedFormulas {
+class LiefeImport implements WithMultipleSheets, WithCalculatedFormulas {
     use Importable;
     //use WithConditionalSheets;
 
     public function sheets(): array
     {
+            
             return [
-                'mydata' => new ThirdSheetImport(),
-                'Sheet1-Tableau' => new FourthSheetImport(),
+                'Formatted Data' => new FormattedDataSheetImport(),
+                'Übergr. Strukturkennzahlen' => new UbergrSheetImport(),
+                'L1 Persönl. Kundenberatung PuG' => new L1sheetImport(),
+                'L2 Telef. Kundenberatung PuG' => new L2sheetImport(),
             ];
+
 
     }
 
