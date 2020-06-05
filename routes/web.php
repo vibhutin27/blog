@@ -21,3 +21,5 @@ Auth::routes();
 
 Route::post('/excelUpload','HomeController@excelUpload')->name('excelUpload');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('/loginDetails', 'GetJsDataController');
+//Route::get('/loginDetails', 'GetJsDataController@index');

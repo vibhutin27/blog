@@ -33,7 +33,7 @@ class ThirdSheetImport implements  ToCollection,WithCalculatedFormulas,WithHeadi
             $user->QNo =    $dataRow['qno'];
             $user->QText =  $dataRow['qtext'];
             $user->QValue = $dataRow['qvalue'];
-            $user->email =  auth()->user()->email;
+            //$user->email =  auth()->user()->email;
             $user->save();
         } 
     }

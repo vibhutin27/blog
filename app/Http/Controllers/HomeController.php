@@ -31,9 +31,15 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('home');
+      $useremail = $request->input('email');
+      $users = DB::select('select * from users where email = ? ',[$useremail]);
+     
+      return view('home',['edituser'=>$users]);
+        //return view('home', $users); 
+      
+      //return view('home');
     }
 
     /* public function showForm()
@@ -66,6 +72,7 @@ class HomeController extends Controller
                   echo" select the file";
                 }
         return view('home');
+      
       }
 
 
