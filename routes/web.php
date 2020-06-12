@@ -19,7 +19,16 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::post('/excelUpload','HomeController@excelUpload')->name('excelUpload');
+//Route::post('/excelUpload','HomeController@excelUpload')->name('excelUpload');
+Route::post('/excelUpload','HomeController@excelUpload')->name('home');
+
+
+Route::get('/DataInputs','HomeController@showForm');
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/loginDetails', 'GetJsDataController');
 //Route::get('/loginDetails', 'GetJsDataController@index');
+Route::resource('books', 'UserCurdOperation');
+
+//EUC datareview
+Route::get('/DataReview','HomeController@DataReview')->name('DataReview');
