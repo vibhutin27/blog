@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserUploadTable extends Migration
+class CreateBlogsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateUserUploadTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_uploads', function (Blueprint $table) {
-            $table->id();
-            $table->integer('QNo');
-            $table->string('QText');
-            $table->string('QValue');
+        Schema::create('blogs', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('title');
+            $table->text('description');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateUserUploadTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_uploads');
+        Schema::dropIfExists('blogs');
     }
 }
