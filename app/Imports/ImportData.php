@@ -31,6 +31,8 @@ class ImportData implements  ToCollection,WithCalculatedFormulas,WithHeadingRow
             if (($dataRow['moduleshortname']=="Ubper") OR ($dataRow['moduleshortname']=="L1per") OR ($dataRow['moduleshortname']=="L2per") OR ($dataRow['moduleshortname']=="L3per") OR ($dataRow['moduleshortname']=="L4per") OR ($dataRow['moduleshortname']=="L5per") OR ($dataRow['moduleshortname']=="L1") OR ($dataRow['moduleshortname']=="L1") OR ($dataRow ['moduleshortname']=="L2") OR ($dataRow['moduleshortname']=="L3") OR ($dataRow['moduleshortname']=="L4") OR ($dataRow['moduleshortname']=="L5"))
             {
                 $user = new UserUpload();
+               // dd($myDataRows);
+                //dd($user);
                 $user->email = auth()->user()->email;
                 //$user->usertype = auth()->user()->usertype;
                 $user->usertype = 'self';

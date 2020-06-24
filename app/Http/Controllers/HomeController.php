@@ -132,11 +132,14 @@ class HomeController extends Controller
                     $fileName = Storage::disk('public')->put('upload',$request->file('file'));
                     $import = new ExcelImport();
                     //$import->onlySheets('Formatted Data','Übergr. Strukturkennzahlen','L1 Persönl. Kundenberatung PuG','L2 Telef. Kundenberatung PuG');
-                    ($import)->import($fileName, 'public', \Maatwebsite\Excel\Excel::XLSX);
-                  echo"File uploaded";
-                  echo"<br>";
-                  
-                  $postdataUbper = DB::table('exceldata')->where('ModuleShortNameQuestionYear','Status')->get();
+                    
+                    $path = $request->file('file')->getRealPath();
+                    $data = Excel::toCollection($fileName, $request->file('file'));
+                    if ($data[0][0][0] == "ModuleShortNameQuestionYear"){
+                      ($import)->import($fileName, 'public', \Maatwebsite\Excel\Excel::XLSX);
+                      echo"File uploaded";
+                      echo"<br>";
+                      $postdataUbper = DB::table('exceldata')->where('ModuleShortNameQuestionYear','Status')->get();
                   
                   $dataUbper = 0;
                 $dataL1per = 0;
@@ -168,6 +171,17 @@ class HomeController extends Controller
                         
                     }
                   return view('DataInputs',compact('dataUbper','dataL1per', 'dataL2per', 'dataL3per', 'dataL4per', 'dataL5per'));
+                  
+                    }
+                    //dd($data[0][0][0]);
+                    else {
+                      //echo"wrong file sheet not found";
+                      return redirect('DataInputs')->withErrors(['yourErrorName'=>'Please upload valid file']);
+
+                    }
+
+                    
+                  
                   
                 }
                 else

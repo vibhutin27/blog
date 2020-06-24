@@ -59,7 +59,7 @@
         </script>    
 </head>
  
- 
+
 <div class="bodydiv">
 <form id="fileform" onsubmit="return validate()" action="{{url('excelUpload')}}" method="POST" enctype="multipart/form-data">
 @csrf     
@@ -139,7 +139,10 @@
                             var x = document.getElementById("image_src").files[0].name;
                             document.getElementById("filepath").innerHTML = x;
                           };
-                        </script></TD>
+                        </script>@if($errors->any())
+{{ implode('', $errors->all('<div>:message</div>')) }}
+@endif
+</TD>
                        <!--<TD><input type="submit"><i class="fa fa-upload"></i></TD>-->
                      <TD><button type="submit" id="fileform" style="padding:2px;background-color:#080E1A;border:0px solid #080E1A"><i class="fa fa-upload" style="color:#fff"></i></button><script>
                        
