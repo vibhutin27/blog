@@ -13,6 +13,9 @@ class UserUpload extends Model
     protected $fillable = ['email,usertype,ModuleShortNameQuestionYear','DataValue','ModuleShortName'];
     //public $timestamps= false;
     protected $table ='exceldata';
+<<<<<<< HEAD
     
+=======
+>>>>>>> 1da86e85525503974a8f3663e3814d4618a5a67b
 }
     
