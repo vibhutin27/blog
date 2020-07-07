@@ -35,3 +35,8 @@ Route::resource('books', 'UserCurdOperation');
 
 //EUC datareview
 Route::get('/DataReview','HomeController@DataReview')->name('DataReview');
+
+
+//New reset password page route
+Route::post('reset_password_without_token', 'AccountsController@validatePasswordRequest');
+Route::post('reset_password_with_token', 'AccountsController@resetPassword');
