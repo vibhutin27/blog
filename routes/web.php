@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
 Route::get('/about', function () {
@@ -35,4 +35,18 @@ Route::resource('books', 'UserCurdOperation');
 
 //EUC datareview
 Route::get('/DataReview','HomeController@DataReview')->name('DataReview');
+
+
+//crud application route
+Route::get('/','EmployeesController@index');
+
+//below route is used for AJAX request.
+Route::get('/employees/getEmployees/','EmployeesController@getEmployees')->name('employees.getEmployees');
+
+//crud 2
+Route::resource('sample', 'SampleController');
+
+Route::post('sample/update', 'SampleController@update')->name('sample.update');
+
+Route::get('sample/destroy/{id}', 'SampleController@destroy');
 

@@ -18,7 +18,7 @@ use Maatwebsite\Excel\Concerns\WithCalculatedFormulas;
 use Excel;
 use App\Imports\ExcelImport;
 
-use App\Imports\ExcelImport;
+
 
 class HomeController extends Controller
 {
@@ -133,7 +133,7 @@ class HomeController extends Controller
                     $fileName = Storage::disk('public')->put('upload',$request->file('file'));
                     $import = new ExcelImport();
                     //$import->onlySheets('Formatted Data','Übergr. Strukturkennzahlen','L1 Persönl. Kundenberatung PuG','L2 Telef. Kundenberatung PuG');
-<<<<<<< HEAD
+
                     
                     $path = $request->file('file')->getRealPath();
                     $data = Excel::toCollection($fileName, $request->file('file'));
@@ -142,13 +142,13 @@ class HomeController extends Controller
                       echo"File uploaded";
                       echo"<br>";
                       $postdataUbper = DB::table('exceldata')->where('ModuleShortNameQuestionYear','Status')->get();
-=======
+
                     ($import)->import($fileName, 'public', \Maatwebsite\Excel\Excel::XLSX);
                   echo"File uploaded";
                   echo"<br>";
                   
                   $postdataUbper = DB::table('exceldata')->whre('ModuleShortNameQuestionYear','Status')->get();
->>>>>>> 1da86e85525503974a8f3663e3814d4618a5a67b
+
                   
                   $dataUbper = 0;
                 $dataL1per = 0;
@@ -181,7 +181,6 @@ class HomeController extends Controller
                     }
                   return view('DataInputs',compact('dataUbper','dataL1per', 'dataL2per', 'dataL3per', 'dataL4per', 'dataL5per'));
                   
-<<<<<<< HEAD
                     }
                     //dd($data[0][0][0]);
                     else {
@@ -193,8 +192,6 @@ class HomeController extends Controller
                     
                   
                   
-=======
->>>>>>> 1da86e85525503974a8f3663e3814d4618a5a67b
                 }
                 else
                 {

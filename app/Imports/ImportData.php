@@ -2,10 +2,10 @@
 
 namespace App\Imports;
 use App\UserUpload;
-<<<<<<< HEAD
+
 use App\StatusImport;
-=======
->>>>>>> 1da86e85525503974a8f3663e3814d4618a5a67b
+
+
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToCollection;
 use Maatwebsite\Excel\Concerns\WithCalculatedFormulas;
@@ -34,11 +34,10 @@ class ImportData implements  ToCollection,WithCalculatedFormulas,WithHeadingRow
             if (($dataRow['moduleshortname']=="Ubper") OR ($dataRow['moduleshortname']=="L1per") OR ($dataRow['moduleshortname']=="L2per") OR ($dataRow['moduleshortname']=="L3per") OR ($dataRow['moduleshortname']=="L4per") OR ($dataRow['moduleshortname']=="L5per") OR ($dataRow['moduleshortname']=="L1") OR ($dataRow['moduleshortname']=="L1") OR ($dataRow ['moduleshortname']=="L2") OR ($dataRow['moduleshortname']=="L3") OR ($dataRow['moduleshortname']=="L4") OR ($dataRow['moduleshortname']=="L5"))
             {
                 $user = new UserUpload();
-<<<<<<< HEAD
+
                // dd($myDataRows);
                 //dd($user);
-=======
->>>>>>> 1da86e85525503974a8f3663e3814d4618a5a67b
+
                 $user->email = auth()->user()->email;
                 //$user->usertype = auth()->user()->usertype;
                 $user->usertype = 'self';
