@@ -14,7 +14,13 @@ class CreateSampleDatasTable extends Migration
     public function up()
     {
         Schema::create('sample_datas', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->string('emp_id');
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('email_id');
+            $table->string('country');
+            $table->string('status');
             $table->timestamps();
         });
     }

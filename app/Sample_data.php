@@ -8,6 +8,6 @@ class Sample_data extends Model
 {
     
     protected $fillable = [
-        'first_name', 'last_name'
+        'emp_id','first_name', 'last_name','email_id','country','status',
        ];
 }

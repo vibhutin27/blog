@@ -12,7 +12,7 @@
  <body>
   <div class="container">    
      <br />
-     <h3 align="center">How to add show Delete or Remove Data From Mysql in Laravel  using Ajax</h3>
+     <h3 align="center">Add show Delete or Remove Data</h3>
      <br />
      <div align="right">
       <button type="button" name="create_record" id="create_record" class="btn btn-success btn-sm">Create Record</button>
@@ -22,13 +22,13 @@
     <table id="user_table" class="table table-bordered table-striped">
      <thead>
       <tr>
-       <th width="5%">Emp ID</th>   
+       <th width="10%">Emp ID</th>   
        <th width="15%">First Name</th>
         <th width="15%">Last Name</th>
         <th width="15%">Email ID</th>
         <th width="15%">Country</th>
         <th width="15%">Status</th>
-        <th width="25%">Action</th>
+        <th width="15%">Action</th>
       </tr>
      </thead>
     </table>
@@ -223,8 +223,12 @@ $(document).ready(function(){
    dataType:"json",
    success:function(data)
    {
+    $('#emp_id').val(data.result.emp_id);   
     $('#first_name').val(data.result.first_name);
     $('#last_name').val(data.result.last_name);
+    $('#email_id').val(data.result.email_id);
+    $('#country').val(data.result.country);
+    $('#status').val(data.result.status);
     $('#hidden_id').val(id);
     $('.modal-title').text('Edit Record');
     $('#action_button').val('Edit');

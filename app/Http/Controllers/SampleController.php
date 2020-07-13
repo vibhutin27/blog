@@ -50,8 +50,12 @@ class SampleController extends Controller
     public function store(Request $request)
     {
         $rules = array(
+            'emp_id'        =>  'required',
             'first_name'    =>  'required',
-            'last_name'     =>  'required'
+            'last_name'     =>  'required',
+            'email_id'      =>  'required',
+            'country'       =>  'required',
+            'status'    =>  'required',
         );
 
         $error = Validator::make($request->all(), $rules);
@@ -62,8 +66,12 @@ class SampleController extends Controller
         }
 
         $form_data = array(
+            'emp_id'            =>  $request->emp_id,
             'first_name'        =>  $request->first_name,
-            'last_name'         =>  $request->last_name
+            'last_name'         =>  $request->last_name,
+            'email_id'          =>  $request->email_id,
+            'country'           =>  $request->country,
+            'status'            =>  $request->status,
         );
 
         Sample_data::create($form_data);
@@ -108,8 +116,12 @@ class SampleController extends Controller
     public function update(Request $request, Sample_data $sample_data)
     {
         $rules = array(
-            'first_name'        =>  'required',
-            'last_name'         =>  'required'
+            'emp_id'        =>  'required',
+            'first_name'    =>  'required',
+            'last_name'     =>  'required',
+            'email_id'      =>  'required',
+            'country'       =>  'required',
+            'first_name'    =>  'required',
         );
 
         $error = Validator::make($request->all(), $rules);
@@ -120,8 +132,12 @@ class SampleController extends Controller
         }
 
         $form_data = array(
-            'first_name'    =>  $request->first_name,
-            'last_name'     =>  $request->last_name
+            'emp_id'            =>  $request->emp_id,
+            'first_name'        =>  $request->first_name,
+            'last_name'         =>  $request->last_name,
+            'email_id'          =>  $request->email_id,
+            'country'           =>  $request->country,
+            'status'            =>  $request->status,
         );
 
         Sample_data::whereId($request->hidden_id)->update($form_data);
