@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('lang/{locale}', function ($locale) {
+    session()->put('locale', $locale);
+    return redirect()->back();
+});
+
 Route::get('/welcome', function () {
     return view('welcome');
 });
